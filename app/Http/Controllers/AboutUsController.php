@@ -6,7 +6,8 @@ use Illuminate\Http\Request;
 
 class AboutUsController extends Controller
 {
-    public function test(){
+    public function test()
+    {
         echo "Hello from About us controller test func";
     }
     //

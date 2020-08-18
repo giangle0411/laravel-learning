@@ -13,16 +13,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-   return view('welcome');
+Route::get('/', 'HomeController@index');
+
+Route::get('/page/{id}', 'HomeController@page');
+//    return view('welcome');
 //   try {
 //       DB::connection()->getPdo();
 //       echo 'Yay, it worked!';
 //   } catch (\Exception $e) {
 //       die("Could not connect to the database, Please check your configuration. error:" . $e);
 //   }
-});
+
+
+Route::get('/contact-us', 'ContactUsController@index');
 
 Route::get('/about-us', 'TestController@test');
 
- 
+Route::post('contact-us/sendmessage', 'ContactUsController@sendMessage');
