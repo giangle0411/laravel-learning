@@ -33,4 +33,21 @@ class ContactUsController extends Controller
 
         return view('contact', ['pages' => $pages])->with('successMessage', 'Thank you! Your message has been sent!');
     }
+
+    public function sendMessageAjax(Request $request)
+    {
+        $input = $request->All();
+
+        dd($input);
+
+        $validatedData = $request->validate([
+            'name' => 'required',
+            'email' => 'required|email',
+        ]);
+
+        return [
+            'success' => true,
+            'confirmMessage' => 'Thank you, your message has been sent. We will reach back as soon as we can'
+        ];
+    }
 }

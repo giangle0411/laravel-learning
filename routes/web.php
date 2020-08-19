@@ -30,3 +30,5 @@ Route::get('/contact-us', 'ContactUsController@index');
 Route::get('/about-us', 'TestController@test');
 
 Route::post('contact-us/sendmessage', 'ContactUsController@sendMessage');
+
+Route::post('contact-us/sendmessage/ajax', 'ContactUsController@sendMessageAjax');
