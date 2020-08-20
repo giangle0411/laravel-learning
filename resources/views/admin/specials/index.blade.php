@@ -30,24 +30,35 @@
             <thead>
               <tr>
                 <th>Name</th>
+                <th>Brand</th>
                 <th>Description</th>
                 <th>Was</th>
                 <th>Now</th>
+                <th>Action</th>
               </tr>
             </thead>
             <tbody>
                 @foreach($specials as $special)
               <tr>
               <td>{{ $special->name}}</td>
+              <td>{{$special->brand}}</td>
               <td>{{$special->description}}</td>
               <td>${{$special->was_price}}</td>
               <td>${{$special->current_price}}</td>
+              <td>
+                <a href="/admin/specials/{{ $special->id }}/edit" class="btn btn-sm btn-primary">Edit</a>
+              <form method="post" action="/admin/specials/{{$special->id}}">
+                @method('delete')
+                @csrf
+                <button class="btn btn-danger btn-sm" type="submit">Delete</button>
+              </form>
+              </td>
             </tr>
             @endforeach
             </tbody>
           </table>
 
-          <a href="/specials" class="btn btn-primary">Add New Special</a>
+          <a href="/admin/specials/create" class="btn btn-primary">Add New Special Item</a>
     </div>
 </body>
 </html>

@@ -42,5 +42,6 @@ Route::group([
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('special/{id}', 'HomeController@specialEntry');
 
 Route::get('/home', 'HomeController@index')->name('home');
