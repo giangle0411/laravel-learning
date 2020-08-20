@@ -20,21 +20,34 @@
         <!-- Links -->
         <ul class="navbar-nav">
 
-            @foreach($pages as $page)
             <li class="nav-item">
-            <a class="nav-link" href="/page/{{$page->id}}">{{$page->name}}</a>
-            </li>
-            @endforeach
-            <li class="nav-item">
-                <a class="nav-link" href="/contact-us">Contact Us</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/admin/specials">Add/Edit/Remove Special</a>
+                <a class="nav-link" href="/">Go Back</a>
             </li>
         </ul>
     </nav>
     <div>
-        {{ $pageDetail->description}}
+        <table class="table">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Was</th>
+                <th>Now</th>
+              </tr>
+            </thead>
+            <tbody>
+                @foreach($specials as $special)
+              <tr>
+              <td>{{ $special->name}}</td>
+              <td>{{$special->description}}</td>
+              <td>${{$special->was_price}}</td>
+              <td>${{$special->current_price}}</td>
+            </tr>
+            @endforeach
+            </tbody>
+          </table>
+
+          <a href="/specials" class="btn btn-primary">Add New Special</a>
     </div>
 </body>
 </html>

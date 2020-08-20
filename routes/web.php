@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -32,3 +31,16 @@ Route::get('/about-us', 'TestController@test');
 Route::post('contact-us/sendmessage', 'ContactUsController@sendMessage');
 
 Route::post('contact-us/sendmessage/ajax', 'ContactUsController@sendMessageAjax');
+
+Auth::routes();
+
+Route::group([
+    'middleware' => 'auth'
+], function () {
+    Route::resource('admin/specials', 'SpecialController');
+});
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+
+Route::get('/home', 'HomeController@index')->name('home');
