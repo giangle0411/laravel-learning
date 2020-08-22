@@ -28,6 +28,10 @@ Route::get('/contact-us', 'ContactUsController@index');
 
 Route::get('/about-us', 'TestController@test');
 
+Route::get('upload-image', 'UploadImageController@index');
+
+Route::post('upload-image/upload', 'UploadImageController@uploadImage');
+
 Route::post('contact-us/sendmessage', 'ContactUsController@sendMessage');
 
 Route::post('contact-us/sendmessage/ajax', 'ContactUsController@sendMessageAjax');
